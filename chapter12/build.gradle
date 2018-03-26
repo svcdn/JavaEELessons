@@ -1,0 +1,58 @@
+group 'com.dnsoft'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+//指定Main函数所在类
+mainClassName = "com.dnsoft.chapter12.AppMain"
+
+//解决问题：在idea中使用gradle进行编译，编码gbk错误
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+repositories {
+    // maven库
+    def cn = "http://maven.aliyun.com/nexus/content/groups/public/"
+    def abroad = "http://central.maven.org/maven2/"
+    // 先从url中下载jar若没有找到，则在artifactUrls中寻找
+    maven {
+        url cn
+        artifactUrls abroad
+    }
+}
+
+dependencies {
+
+
+    // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+
+    // https://mvnrepository.com/artifact/commons-logging/commons-logging
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-beans
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.12.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-core
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.12.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-expression
+    compile group: 'org.springframework', name: 'spring-expression', version: '4.3.12.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.12.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-web
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.6.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.6.RELEASE'
+
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
