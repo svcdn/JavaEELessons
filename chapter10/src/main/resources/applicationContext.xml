@@ -50,4 +50,6 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
+    <!-- 开启扫描 -->
+    <context:component-scan base-package="com.dnsoft.JavaEEChapter10.service" />
 </beans>

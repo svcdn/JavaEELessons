@@ -1,6 +1,7 @@
 import com.dnsoft.JavaEEChapter10.dao.CustomerDao;
 import com.dnsoft.JavaEEChapter10.mapper.CustomerMapper;
 import com.dnsoft.JavaEEChapter10.pojo.Customer;
+import com.dnsoft.JavaEEChapter10.service.CustomerService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -26,5 +27,18 @@ public class MainTest {
         CustomerMapper customerMapper = act.getBean(CustomerMapper.class);
         Customer customer = customerMapper.findCustomerById(2);
         System.out.println(customer);
+    }
+
+    @Test
+    public void transactionTest(){
+        ApplicationContext act =
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        CustomerService customerService =
+                act.getBean(CustomerService.class);
+        Customer customer = new Customer();
+        customer.setUsername("zhangsan");
+        customer.setJobs("manager");
+        customer.setPhone("13233334444");
+        customerService.addCustomer(customer);
     }
 }
