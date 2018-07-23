@@ -14,6 +14,7 @@
     http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
     <!-- 读取db.properties -->
     <context:property-placeholder location="classpath:db.properties"/>
+
     <!-- 配置数据源 -->
     <bean id="dataSource"
           class="org.apache.commons.dbcp2.BasicDataSource">
@@ -32,25 +33,30 @@
         <!--初始化连接数  -->
         <property name="initialSize" value="${jdbc.initialSize}" />
     </bean>
-    <!--&lt;!&ndash; 事务管理器，依赖于数据源 &ndash;&gt;
+
+    <!-- 事务管理器，依赖于数据源 -->
     <bean id="transactionManager" class=
             "org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
-    &lt;!&ndash; 开启事务注解 &ndash;&gt;
+
+    <!-- 开启事务注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
-    &lt;!&ndash; 配置MyBatis工厂SqlSessionFactory &ndash;&gt;
+
+    <!-- 配置MyBatis工厂SqlSessionFactory -->
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean">
-        &lt;!&ndash;注入数据源 &ndash;&gt;
+        <!--注入数据源 -->
         <property name="dataSource" ref="dataSource" />
-        &lt;!&ndash;指定核MyBatis心配置文件位置 &ndash;&gt;
+        <!--指定核MyBatis心配置文件位置 -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
-    &lt;!&ndash; 配置mapper扫描器 &ndash;&gt;
+
+    <!-- 配置mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.dnsoft.JavaEEChapter17.dao"/>
+        <property name="basePackage" value="com.dnsoft.JavaEEChapter18.core.dao"/>
     </bean>
-    &lt;!&ndash; 扫描Service &ndash;&gt;
-    <context:component-scan base-package="com.dnsoft.JavaEEChapter18.core.service" />-->
+
+    <!-- 扫描Service -->
+    <context:component-scan base-package="com.dnsoft.JavaEEChapter18.core.service" />
 </beans>

@@ -11,18 +11,19 @@
   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     <!-- 配置包扫描器，扫描@Controller注解的类 -->
     <context:component-scan base-package="com.dnsoft.JavaEEChapter18.core.web.controller" />
+
     <!-- 加载注解驱动 -->
     <mvc:annotation-driven />
-    <!-- 配置视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp" />
-    </bean>
-    <!-- 注解驱动：配置处理器映射器和适配器 -->
-    <mvc:annotation-driven />
+
     <!--配置静态资源的访问映射，此配置中的文件，将不被前端控制器拦截 -->
     <mvc:resources location="/js/" mapping="/js/**" />
     <mvc:resources location="/css/" mapping="/css/**" />
     <mvc:resources location="/fonts/" mapping="/fonts/**" />
     <mvc:resources location="/images/" mapping="/images/**" />
+
+    <!-- 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
 </beans>

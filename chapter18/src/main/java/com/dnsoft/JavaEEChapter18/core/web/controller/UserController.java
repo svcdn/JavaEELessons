@@ -1,6 +1,8 @@
 package com.dnsoft.JavaEEChapter18.core.web.controller;
 
 
+import com.dnsoft.JavaEEChapter18.core.pojo.User;
+import com.dnsoft.JavaEEChapter18.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,18 +17,18 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class UserController {
-	/*// 依赖注入
+	// 依赖注入
 	@Autowired
 	private UserService userService;
-	*//**
+	/**
 	 * 用户登录
-	 *//*
+	 */
 	@RequestMapping(value = "/login.action", method = RequestMethod.POST)
 	public String login(String usercode, String password, Model model,
 						HttpSession session, HttpServletRequest request) {
 		// 通过账号和密码查询用户
 		User user = userService.findUser(usercode, password);
-		if(user != null){		
+		if(user != null){
 			// 将用户对象添加到Session
 			session.setAttribute("USER_SESSION", user);
 			// 跳转到主页面
@@ -34,12 +36,12 @@ public class UserController {
 			return "redirect:customer/list.action";
 		}
 		model.addAttribute("msg", "账号或密码错误，请重新输入！");
-         // 返回到登录页面
+		// 返回到登录页面
 
 		return "login";
 	}
-	
-	*//**
+
+	/**
 	 * 模拟其他类中跳转到客户管理页面的方法
 	 *//*
 	@RequestMapping(value = "/toCustomer.action")
