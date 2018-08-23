@@ -17,9 +17,11 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class UserController {
+
 	// 依赖注入
 	@Autowired
 	private UserService userService;
+
 	/**
 	 * 用户登录
 	 */
@@ -43,22 +45,23 @@ public class UserController {
 
 	/**
 	 * 模拟其他类中跳转到客户管理页面的方法
-	 *//*
+	 */
 	@RequestMapping(value = "/toCustomer.action")
 	public String toCustomer() {
 	    return "customer";
 	}
 	
-	*//**
+	/**
 	 * 退出登录
-	 *//*
+	 */
 	@RequestMapping(value = "/logout.action")
 	public String logout(HttpSession session) {
 	    // 清除Session
 	    session.invalidate();
 	    // 重定向到登录页面的跳转方法
 	    return "redirect:login.action";
-	}*/
+	}
+
 	/**
 	 * 向用户登陆页面跳转
 	 */

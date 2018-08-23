@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="itheima" uri="http://itheima.com/common/"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() 
@@ -240,36 +240,36 @@
 						<label for="customerFrom">客户来源</label> 
 						<select	class="form-control" id="customerFrom" name="custSource">
 							<option value="">--请选择--</option>
-							<c:forEach items="${fromType}" var="item">
-								<option value="${item.dict_id}"
-								       <c:if test="${item.dict_id == custSource}">selected</c:if>>
-								    ${item.dict_item_name }
-								</option>
-							</c:forEach>
+							<%--<c:forEach items="${fromType}" var="item">--%>
+								<%--<option value="${item.dict_id}"--%>
+								       <%--<c:if test="${item.dict_id == custSource}">selected</c:if>>--%>
+								    <%--${item.dict_item_name }--%>
+								<%--</option>--%>
+							<%--</c:forEach>--%>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="custIndustry">所属行业</label> 
 						<select	class="form-control" id="custIndustry"  name="custIndustry">
 							<option value="">--请选择--</option>
-							<c:forEach items="${industryType}" var="item">
-								<option value="${item.dict_id}"
-								        <c:if test="${item.dict_id == custIndustry}"> selected</c:if>>
-								    ${item.dict_item_name }
-								</option>
-							</c:forEach>
+							<%--<c:forEach items="${industryType}" var="item">--%>
+								<%--<option value="${item.dict_id}"--%>
+								        <%--<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>--%>
+								    <%--${item.dict_item_name }--%>
+								<%--</option>--%>
+							<%--</c:forEach>--%>
 						</select>
 					</div>
 					<div class="form-group">
 						<label for="custLevel">客户级别</label>
 						<select	class="form-control" id="custLevel" name="custLevel">
 							<option value="">--请选择--</option>
-							<c:forEach items="${levelType}" var="item">
-								<option value="${item.dict_id}"
-								        <c:if test="${item.dict_id == custLevel}"> selected</c:if>>
-								    ${item.dict_item_name }
-								</option>
-							</c:forEach>
+							<%--<c:forEach items="${levelType}" var="item">--%>
+								<%--<option value="${item.dict_id}"--%>
+								        <%--<c:if test="${item.dict_id == custLevel}"> selected</c:if>>--%>
+								    <%--${item.dict_item_name }--%>
+								<%--</option>--%>
+							<%--</c:forEach>--%>
 						</select>
 					</div>
 					<button type="submit" class="btn btn-primary">查询</button>
@@ -297,25 +297,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${page.rows}" var="row">
-								<tr>
-									<td>${row.cust_id}</td>
-									<td>${row.cust_name}</td>
-									<td>${row.cust_source}</td>
-									<td>${row.cust_industry}</td>
-									<td>${row.cust_level}</td>
-									<td>${row.cust_phone}</td>
-								    <td>${row.cust_mobile}</td>
-									<td>
-										<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick= "editCustomer(${row.cust_id})">修改</a>
-										<a href="#" class="btn btn-danger btn-xs" onclick="deleteCustomer(${row.cust_id})">删除</a>
-									</td>
-								</tr>
-							</c:forEach>
+							<%--<c:forEach items="${page.rows}" var="row">--%>
+								<%--<tr>--%>
+									<%--<td>${row.cust_id}</td>--%>
+									<%--<td>${row.cust_name}</td>--%>
+									<%--<td>${row.cust_source}</td>--%>
+									<%--<td>${row.cust_industry}</td>--%>
+									<%--<td>${row.cust_level}</td>--%>
+									<%--<td>${row.cust_phone}</td>--%>
+								    <%--<td>${row.cust_mobile}</td>--%>
+									<%--<td>--%>
+										<%--<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick= "editCustomer(${row.cust_id})">修改</a>--%>
+										<%--<a href="#" class="btn btn-danger btn-xs" onclick="deleteCustomer(${row.cust_id})">删除</a>--%>
+									<%--</td>--%>
+								<%--</tr>--%>
+							<%--</c:forEach>--%>
 						</tbody>
 					</table>
 					<div class="col-md-12 text-right">
-						<itheima:page url="${pageContext.request.contextPath }/customer/list.action" />
+
 					</div>
 					<!-- /.panel-body -->
 				</div>
@@ -352,11 +352,11 @@
 						<div class="col-sm-10">
 							<select	class="form-control" id="new_customerFrom" name="cust_source">
 								<option value="">--请选择--</option>
-								<c:forEach items="${fromType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}">selected</c:if>>
-									${item.dict_item_name }									
-									</option>
-								</c:forEach>
+								<%--<c:forEach items="${fromType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}">selected</c:if>>--%>
+									<%--${item.dict_item_name }									--%>
+									<%--</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
@@ -365,11 +365,11 @@
 						<div class="col-sm-10"> 
 							<select	class="form-control" id="new_custIndustry"  name="cust_industry">
 								<option value="">--请选择--</option>
-								<c:forEach items="${industryType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>
-									${item.dict_item_name }
-									</option>
-								</c:forEach>
+								<%--<c:forEach items="${industryType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>--%>
+									<%--${item.dict_item_name }--%>
+									<%--</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
@@ -378,9 +378,9 @@
 						<div class="col-sm-10">
 							<select	class="form-control" id="new_custLevel" name="cust_level">
 								<option value="">--请选择--</option>
-								<c:forEach items="${levelType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
+								<%--<c:forEach items="${levelType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
@@ -448,9 +448,9 @@
 						<div class="col-sm-10">
 							<select	class="form-control" id="edit_customerFrom" name="cust_source">
 								<option value="">--请选择--</option>
-								<c:forEach items="${fromType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
+								<%--<c:forEach items="${fromType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custSource}"> selected</c:if>>${item.dict_item_name }</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
@@ -459,9 +459,9 @@
 						<div class="col-sm-10"> 
 							<select	class="form-control" id="edit_custIndustry"  name="cust_industry">
 								<option value="">--请选择--</option>
-								<c:forEach items="${industryType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
+								<%--<c:forEach items="${industryType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custIndustry}"> selected</c:if>>${item.dict_item_name }</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
@@ -470,9 +470,9 @@
 						<div class="col-sm-10">
 							<select	class="form-control" id="edit_custLevel" name="cust_level">
 								<option value="">--请选择--</option>
-								<c:forEach items="${levelType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
+								<%--<c:forEach items="${levelType}" var="item">--%>
+									<%--<option value="${item.dict_id}"<c:if test="${item.dict_id == custLevel}"> selected</c:if>>${item.dict_item_name }</option>--%>
+								<%--</c:forEach>--%>
 							</select>
 						</div>
 					</div>
